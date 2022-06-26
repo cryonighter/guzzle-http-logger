@@ -1,0 +1,36 @@
+{
+    "name": "cryonighter/guzzle-http-logger",
+    "description": "HTTP request and response logger for guzzle",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Reshetchenko",
+            "email": "cryonighter@yandex.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cryonighter\\GuzzleHttpLogger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cryonighter\\GuzzleHttpLogger\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "guzzlehttp/guzzle": ">=6.0.0",
+        "cryonighter/http-logger": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4.0"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
