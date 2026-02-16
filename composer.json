@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "type": "library",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -25,7 +25,7 @@
     "require": {
         "php": ">=7.2",
         "guzzlehttp/guzzle": ">=6.0.0",
-        "cryonighter/http-logger": "^1.0"
+        "cryonighter/http-logger": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.4.0"

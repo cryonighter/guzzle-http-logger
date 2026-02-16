@@ -48,15 +48,21 @@ class GuzzleClientFactory
                         },
                         function (TransferException $reason) use ($httpLogger): PromiseInterface {
                             if ($reason instanceof RequestException) {
-                                $response = $reason->getResponse();
+                                if ($reason->hasResponse()) {
+                                    $response = $reason->getResponse();
 
-                                $httpLogger->logResponse(
-                                    $response->getProtocolVersion(),
-                                    $response->getStatusCode(),
-                                    $response->getReasonPhrase(),
-                                    $response->getHeaders(),
-                                    (string) $response->getBody()
-                                );
+                                    $httpLogger->logResponse(
+                                        $response->getProtocolVersion(),
+                                        $response->getStatusCode(),
+                                        $response->getReasonPhrase(),
+                                        $response->getHeaders(),
+                                        (string) $response->getBody()
+                                    );
+                                } else {
+                                    $httpLogger->logError($reason->getMessage());
+                                }
+                            } else {
+                                $httpLogger->logError($reason->getMessage());
                             }
 
                             return Create::rejectionFor($reason);
